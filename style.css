@@ -1,8 +1,18 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #0f172a;
   color: white;
+  
+  /* Image de fond fixe qui prend tout l'écran */
+  background-image: url('votre-image-de-fond.png'); /* ◄ REMPLACEZ PAR VOTRE IMAGE */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  
+  /* Pour aligner tout le contenu proprement au centre */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 /* HEADER */
@@ -10,13 +20,17 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 25px;
-  background: #111827;
-  position: sticky;
+  padding: 15px 40px;
+  background: rgba(17, 24, 39, 0.85); /* Fond sombre transparent */
+  backdrop-filter: blur(8px); /* Effet flouté sous la barre */
+  position: fixed; /* Reste en haut sans bouger */
+  width: 100%;
   top: 0;
+  left: 0;
+  z-index: 1000;
 }
 
-/* rectangle noir gauche */
+/* Rectangle noir gauche */
 .logo {
   width: 120px;
   height: 40px;
@@ -24,7 +38,7 @@ header {
   border-radius: 6px;
 }
 
-/* menu droite */
+/* Menu droite */
 nav {
   display: flex;
   gap: 15px;
@@ -36,24 +50,44 @@ nav a {
   padding: 8px 12px;
   border-radius: 6px;
   transition: 0.2s;
+  font-weight: 500;
 }
 
 nav a:hover {
-  background: #2563eb;
+  background: rgba(255, 255, 255, 0.15); /* Effet de survol plus discret style jeu vidéo */
 }
 
-/* contenu */
+/* CONTENU PRINCIPAL */
 .container {
-  padding: 60px;
+  /* Boîte noire transparente */
+  background: rgba(0, 0, 0, 0.75); 
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  
+  /* Marges et tailles */
+  padding: 40px 60px;
   max-width: 900px;
-  margin: auto;
+  width: 90%;
+  
+  /* Centrage horizontal et vertical */
+  margin: 180px auto 60px auto; /* 180px en haut pour laisser de la place au grand titre */
+  text-align: center; /* Centre le texte comme sur la maquette */
+  
+  /* Ombre pour détacher la boîte du fond */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 15px;
+  text-transform: uppercase;
 }
 
 p {
-  opacity: 0.8;
-  line-height: 1.6;
+  opacity: 0.9;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  margin-bottom: 20px;
 }
