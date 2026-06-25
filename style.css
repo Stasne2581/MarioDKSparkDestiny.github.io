@@ -54,7 +54,7 @@ header {
 /* Menu droite */
 nav {
   display: flex;
-  gap: 8px;                
+  gap: 8px;                               
   margin: 15px 0;
 }
 
@@ -315,7 +315,7 @@ p, .features {
   font-style: italic;
 }
 
-/* 🕹️ BOUTON DISCORD STYLISÉ */
+/* 🕹️ BOUTON DISCORD STYLISÉ (PAGE CONTRIBUTE uniquement) */
 .btn-discord {
   display: inline-flex !important;
   align-items: center;
@@ -336,7 +336,7 @@ p, .features {
   background-color: #4752C4;
   transform: scale(1.05) !important;
   box-shadow: 0 6px 20px rgba(88, 101, 242, 0.6);
-  padding-left: 35px !important; /* Annule proprement le décalage hérité de download */
+  padding-left: 35px !important; 
 }
 
 .discord-icon {
@@ -429,36 +429,58 @@ p, .features {
   text-decoration: underline;
 }
 
-/* Conteneur des boutons */
+
+/* ==========================================================================
+   🏠 ZONE RÉSEAUX SOCIAUX ACCUEIL (CORRECTION INTERFÉRENCES)
+   ========================================================================== */
+
 .social-buttons {
-  margin-top: 40px;
+  margin-top: 50px;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px; /* Écart parfait entre YouTube et Discord */
 }
 
-/* Base des liens : on nettoie tout et on supprime le déplacement */
-.social-buttons a {
-  display: inline-block;
-  margin: 0 20px;
-  background: none !important;
+/* On utilise .social-link pour isoler complètement des styles de .btn-discord */
+.social-buttons a.social-link {
+  display: inline-block !important;
+  margin: 0 !important;
   padding: 0 !important;
-  border-radius: 0;
-  text-decoration: none;
-  vertical-align: middle; /* Aligne les deux logos sur la même ligne */
-  transition: opacity 0.2s ease; /* Remplace le déplacement par un simple effet d'opacité */
+  background: none !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+  transform: none !important; /* Verrouille tout déplacement */
+  transition: opacity 0.2s ease !important;
 }
 
-/* Au survol : simple effet de lumière/opacité, plus de mouvement ! */
-.social-buttons a:hover {
-  transform: none !important; /* Bloque définitivement tout déplacement */
-  opacity: 0.8;
+/* Simple effet de transparence lisse sans bouger les éléments */
+.social-buttons a.social-link:hover {
+  transform: none !important; 
+  opacity: 0.7 !important;
+  background: none !important;
 }
 
-/* Force les deux logos à faire STRICTEMENT la même taille et plus gros */
+/* Élimination définitive des reflets ou bordures CSS */
 .social-icon {
-  width: 70px !important;  /* Ajuste cette valeur pour les rendre encore plus gros si besoin */
-  height: 70px !important; /* Garder width et height identiques force la même taille */
-  object-fit: contain;     /* Évite que l'image soit déformée */
-  display: block;
-  box-shadow: none !important; /* Supprime d'éventuels reflets CSS */
-  filter: none !important;     /* Supprime d'éventuels filtres CSS */
+  display: block !important;
+  box-shadow: none !important;
+  border: none !important;
+  filter: none !important;
+  object-fit: contain;
+}
+
+/* Compensation précise des tailles de tes images sprites */
+.icon-discord {
+  height: 65px !important; /* Taille de référence pour Discord */
+  width: auto !important;
+}
+
+.icon-youtube {
+  height: 75px !important; /* Plus haut pour contrer le fait que le sprite d'origine soit plus petit */
+  width: auto !important;
 }
