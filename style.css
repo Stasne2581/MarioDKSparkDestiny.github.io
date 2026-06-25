@@ -102,3 +102,48 @@ p {
   font-size: 1.25rem; /* Ajuste légèrement la taille si besoin */
 }
 
+/* SECTION DES TÉLÉCHARGEMENTS */
+.download-section {
+  display: flex;
+  flex-direction: column;   /* Aligne les boutons les uns en dessous des autres */
+  align-items: flex-start;  /* Aligne le tout sur le côté gauche */
+  gap: 15px;                /* Espace entre chaque bouton */
+  margin-top: 30px;         /* Espace avec le texte du dessus */
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Ligne de séparation discrète */
+}
+
+/* Style de base des boutons */
+.btn-download {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 6px;
+  width: 100%;
+  max-width: 320px;         /* Limite la largeur des boutons */
+  text-align: left;         /* Aligne le texte du bouton à gauche */
+  transition: transform 0.2s, filter 0.2s;
+}
+
+/* Animation au survol */
+.btn-download:hover {
+  transform: translateY(-2px); /* Léger effet de soulèvement */
+  filter: brightness(1.2);     /* Rend le bouton légèrement plus lumineux */
+}
+
+/* Couleurs spécifiques par plateforme */
+.btn-windows {
+  background-color: #0078d4; /* Bleu Windows */
+}
+
+.btn-android {
+  background-color: #3ddc84; /* Vert Android */
+  color: #070707;            /* Texte sombre pour une meilleure lisibilité sur le vert */
+}
+
+.btn-switch {
+  background-color: #e60012; /* Rouge Nintendo Switch */
+}
