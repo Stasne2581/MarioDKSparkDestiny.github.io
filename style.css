@@ -22,49 +22,66 @@ body {
   min-height: 100vh;
 }
 
-/* HEADER (Prend toute la largeur de l'écran avec sécurité contre les débordements) */
+/* HEADER (Prend toute la largeur du site mais centre son contenu à l'intérieur) */
 header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;             
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 4%;        /* Utilisation de marges flexibles pour éviter la coupure à droite */
+  justify-content: center; /* Centre le conteneur interne */
   background: rgba(17, 24, 39, 0.85);
   backdrop-filter: blur(8px);
   z-index: 1000;
+  padding: 0 20px;         /* Sécurité minimale sur les côtés */
 }
 
-/* Rectangle noir gauche */
+/* Nouveau bloc invisible qui encadre le logo et le menu au centre */
+header::before, header::after {
+  content: none; /* Nettoyage si besoin */
+}
+
+/* Appliquons directement un comportement propre pour regrouper les éléments */
+header {
+  box-sizing: border-box;
+}
+
+/* Pour que le logo et le nav se partagent l'espace de manière fixe au centre */
 .logo {
   width: 120px;
   height: 40px;
   background: black;
   border-radius: 6px;
+  margin: 15px 0; /* Ajoute l'espace vertical */
 }
 
-/* Menu droite */
+/* Menu droite (Ajusté pour être centré avec des marges globales) */
 nav {
   display: flex;
-  gap: 5px;                /* Espacement compact pour contenir la police large */
-  flex-wrap: wrap;         /* Empêche les éléments de forcer la largeur de la page */
-  justify-content: flex-end;
+  gap: 8px;                /* Espace équilibré pour la police large */
+  margin: 15px 0;
 }
 
 nav a {
   color: white;
   text-decoration: none;
-  padding: 8px 10px;       /* Marges ajustées pour la police rétro */
+  padding: 8px 12px;       
   border-radius: 6px;
   transition: 0.2s;
   font-weight: 600; 
-  font-size: 0.95rem;      /* Ajusté pour la sécurité du menu sur petits écrans */
+  font-size: 1rem;         /* Taille de police parfaite pour la lisibilité */
 }
 
 nav a:hover {
   background: rgba(255, 255, 255, 0.15); 
+}
+
+/* Ajustement global : Force les deux blocs du header à ne pas s'éloigner à l'infini */
+header {
+  justify-content: space-between;
+  max-width: 1200px;       /* ◄ Limite l'écartement maximal du menu */
+  left: 50%;               /* Centre le bloc sur l'écran */
+  transform: translateX(-50%);
 }
 
 /* CONTENU PRINCIPAL */
@@ -108,15 +125,14 @@ p {
 /* 📥 BLOC DE TÉLÉCHARGEMENT */
 .download-section {
   display: flex;
-  flex-direction: column;   /* Aligne les liens en colonne */
-  align-items: flex-start;  /* Force l'alignement sur le côté GAUCHE */
-  gap: 25px;                /* Espace vertical entre chaque ligne */
+  flex-direction: column;   
+  align-items: flex-start;  
+  gap: 25px;                
   margin-top: 40px;         
   padding-top: 25px;
   border-top: 1px solid rgba(255, 255, 255, 0.1); 
 }
 
-/* Style des gros liens de téléchargement */
 .download-section a {
   color: #ffffff;           
   text-decoration: none;    
@@ -124,31 +140,28 @@ p {
   font-weight: bold;        
   transition: color 0.2s, padding-left 0.2s;
   display: flex;
-  align-items: center;      /* Centre verticalement le logo avec le texte */
+  align-items: center;      
 }
 
-/* Effet global au survol */
 .download-section a:hover {
   padding-left: 12px;       
 }
 
-/* Couleurs uniques au survol pour chaque plateforme */
 .download-section a.lnk-windows:hover {
-  color: #017ce3;           /* Votre bleu Windows personnalisé */
+  color: #017ce3;           
 }
 
 .download-section a.lnk-android:hover {
-  color: #98cb00;           /* Votre vert Android personnalisé */
+  color: #98cb00;           
 }
 
 .download-section a.lnk-switch:hover {
-  color: #ff0001;           /* Votre rouge Switch personnalisé */
+  color: #ff0001;           
 }
 
-/* Gestion de la taille et de l'espacement de vos logos PNG */
 .download-icon {
-  width: 40px;              /* Taille des logos de plateformes */
+  width: 40px;              
   height: auto;        
-  margin-right: 20px;       /* Espace entre le logo et le texte */
+  margin-right: 20px;       
   object-fit: contain; 
 }
