@@ -38,7 +38,7 @@ header {
   z-index: 1000;
   box-sizing: border-box;
   
-  /* 🎬 Animation d'apparition du header depuis le haut */
+  /* Animation d'apparition du header depuis le haut */
   animation: slideFromTop 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
@@ -83,19 +83,19 @@ nav a:hover {
   max-width: 1000px; 
   width: 90%;
   
-  /* ◄ MARGE AUGMENTÉE (480px) : Descend considérablement le bloc pour accueillir le logo géant */
-  margin: 480px auto 60px auto; 
+  /* ◄ MARGE AUGMENTÉE (560px) : Descend le bloc au maximum pour accueillir le logo colossal */
+  margin: 560px auto 60px auto; 
   text-align: center; 
   position: relative; 
   
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
   
-  /* 🎬 Animation d'apparition de la boîte (fondu + montée fluide) */
+  /* Animation d'apparition de la boîte (fondu + montée fluide) */
   opacity: 0;
   animation: containerFadeIn 1s cubic-bezier(0.25, 1, 0.5, 1) 0.3s forwards;
 }
 
-/* LOGO DU JEU VRAIMENT GIGANTESQUE AVEC ANIMATIONS FLUIDES */
+/* LOGO DU JEU COLOSSAL ET ANIMATION ULTRA RYTHMÉE */
 .container::before {
   content: "";
   display: block;
@@ -104,21 +104,21 @@ nav a:hover {
   background-repeat: no-repeat;
   background-position: center;
   
-  /* ◄ TAILLE VRAIMENT GIGANTESQUE */
-  width: 850px;       
-  height: 280px;      
-  max-width: 98%;     
+  /* ◄ TAILLE ENCORE PLUS MONSTRUEUSE */
+  width: 1050px;       
+  height: 350px;      
+  max-width: 100%;     
   
   /* Positionnement volant au-dessus */
   position: absolute;
-  top: -320px;        /* Ajusté pour flotter à la perfection au-dessus */
+  top: -390px;        /* Ajusté pour la nouvelle taille géante */
   left: 50%;
   transform: translateX(-50%);
   
-  /* Animations combinées (Apparition rapide + Flottement infini) */
+  /* ◄ ANIMATION RENDUE DEUX FOIS PLUS RAPIDE (2.2s au lieu de 5s) */
   animation: 
     logoPopIn 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
-    levitate 5s ease-in-out infinite alternate;
+    levitate 2.2s ease-in-out infinite alternate;
 }
 
 /* ELEMENTS INTERNES DU CONTENEUR ANIMÉS */
@@ -141,7 +141,7 @@ p, .features {
   font-size: 1.3rem; 
   margin-bottom: 20px;
   
-  /* Animation des paragraphes (apparaissent juste après le titre) */
+  /* Animation des paragraphes */
   animation: contentReveal 0.6s ease-out 1s forwards;
 }
 
@@ -178,7 +178,7 @@ p, .features {
 /* Effets de survol sur les boutons de téléchargement */
 .download-section a:hover {
   padding-left: 15px;       
-  transform: scale(1.02); /* Léger effet d'impact au survol */
+  transform: scale(1.02); 
 }
 
 .download-section a.lnk-windows:hover { color: #017ce3; }
@@ -203,7 +203,7 @@ p, .features {
   100% { transform: translateY(0); }
 }
 
-/* 2. Entrée dynamique et percutante du logo géant */
+/* 2. Entrée dynamique et percutante du logo */
 @keyframes logoPopIn {
   0% {
     opacity: 0;
@@ -217,13 +217,13 @@ p, .features {
   }
 }
 
-/* 3. Flottement vertical très doux style écran titre de jeu vidéo */
+/* 3. Flottement vertical rapide et énergique */
 @keyframes levitate {
   0% {
     transform: translateX(-50%) translateY(0px);
   }
   100% {
-    transform: translateX(-50%) translateY(-15px); /* Oscille de 15px */
+    transform: translateX(-50%) translateY(-18px); /* Oscille nerveusement de 18px */
   }
 }
 
