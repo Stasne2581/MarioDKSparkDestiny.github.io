@@ -22,7 +22,7 @@ body {
   min-height: 100vh;
 }
 
-/* HEADER (Prend toute la largeur de l'écran) */
+/* HEADER (Prend toute la largeur de l'écran avec sécurité contre les débordements) */
 header {
   position: fixed;
   top: 0;
@@ -31,7 +31,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 60px;      
+  padding: 15px 4%;        /* Utilisation de marges flexibles pour éviter la coupure à droite */
   background: rgba(17, 24, 39, 0.85);
   backdrop-filter: blur(8px);
   z-index: 1000;
@@ -48,17 +48,19 @@ header {
 /* Menu droite */
 nav {
   display: flex;
-  gap: 15px;
+  gap: 5px;                /* Espacement compact pour contenir la police large */
+  flex-wrap: wrap;         /* Empêche les éléments de forcer la largeur de la page */
+  justify-content: flex-end;
 }
 
 nav a {
   color: white;
   text-decoration: none;
-  padding: 10px 16px; 
+  padding: 8px 10px;       /* Marges ajustées pour la police rétro */
   border-radius: 6px;
   transition: 0.2s;
   font-weight: 600; 
-  font-size: 1.1rem; 
+  font-size: 0.95rem;      /* Ajusté pour la sécurité du menu sur petits écrans */
 }
 
 nav a:hover {
@@ -132,21 +134,21 @@ p {
 
 /* Couleurs uniques au survol pour chaque plateforme */
 .download-section a.lnk-windows:hover {
-  color: #017ce3;           /* ◄ Votre bleu Windows personnalisé */
+  color: #017ce3;           /* Votre bleu Windows personnalisé */
 }
 
 .download-section a.lnk-android:hover {
-  color: #98cb00;           /* ◄ Votre vert Android personnalisé */
+  color: #98cb00;           /* Votre vert Android personnalisé */
 }
 
 .download-section a.lnk-switch:hover {
-  color: #ff0001;           /* ◄ Votre rouge Switch personnalisé */
+  color: #ff0001;           /* Votre rouge Switch personnalisé */
 }
 
 /* Gestion de la taille et de l'espacement de vos logos PNG */
 .download-icon {
-  width: 40px;         /* Taille des logos de plateformes */
+  width: 40px;              /* Taille des logos de plateformes */
   height: auto;        
-  margin-right: 20px;  /* Espace entre le logo et le texte */
+  margin-right: 20px;       /* Espace entre le logo et le texte */
   object-fit: contain; 
 }
