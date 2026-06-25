@@ -22,24 +22,20 @@ body {
   min-height: 100vh;
 }
 
-/* HEADER (La barre prend 100% de la largeur de l'écran) */
+/* HEADER (La barre prend 100% de la largeur de l'écran et centre son contenu) */
 header {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;             /* Fait toute la longueur de la page */
+  width: 100%;             
   display: flex;
-  justify-content: center; /* Centre le contenu interne */
+  justify-content: space-between; 
+  align-items: center;
+  padding: 0 max(20px, calc((100% - 1200px) / 2 + 30px)); 
   background: rgba(17, 24, 39, 0.85);
   backdrop-filter: blur(8px);
   z-index: 1000;
   box-sizing: border-box;
-}
-
-/* CONTENEUR INTERNE DU HEADER (Garde vos boutons alignés et stables au centre) */
-header {
-  padding: 0 max(20px, calc((100% - 1200px) / 2 + 30px)); 
-  justify-content: space-between;
 }
 
 /* Rectangle noir gauche */
@@ -82,32 +78,60 @@ nav a:hover {
   max-width: 1000px; 
   width: 90%;
   
-  /* ◄ MARGE AUGMENTÉE (280px) : Descend le bloc noir pour laisser la place au logo */
-  margin: 280px auto 60px auto; 
+  /* Marge augmentée à 360px pour laisser toute la place au très gros logo */
+  margin: 360px auto 60px auto; 
   text-align: center; 
   position: relative; /* Nécessaire pour placer le logo au-dessus */
   
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
 }
 
-/* LOGO DU JEU AUTOMATIQUE AU-DESSUS DE LA BOÎTE NOIRE */
+/* LOGO DU JEU AGRANDI AVEC ANIMATIONS FLUIDES */
 .container::before {
   content: "";
   display: block;
-  background-image: url('sprites/game_logo.png'); /* ◄ Chemin vers votre logo */
+  background-image: url('sprites/game_logo.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   
-  /* Dimensions du logo */
-  width: 350px;       /* Ajustez la largeur de votre logo ici */
-  height: 120px;      /* Ajustez la hauteur de votre logo ici */
+  /* Taille beaucoup plus grande */
+  width: 650px;       
+  height: 200px;      
+  max-width: 95%;     /* Évite les débordements sur petits écrans */
   
   /* Positionnement volant au-dessus */
   position: absolute;
-  top: -140px;        /* Le propulse au-dessus de la boîte noire */
+  top: -220px;        
   left: 50%;
   transform: translateX(-50%);
+  
+  /* Animations combinées (Apparition + Flottement infini) */
+  animation: 
+    logoFadeIn 1s cubic-bezier(0.25, 1, 0.5, 1) forwards,
+    levitate 4s ease-in-out infinite alternate;
+}
+
+/* Définition de l'animation de flottement vertical */
+@keyframes levitate {
+  0% {
+    transform: translateX(-50%) translateY(0px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-12px); /* Monte doucement de 12px */
+  }
+}
+
+/* Définition de l'animation d'apparition en fondu flouté au chargement */
+@keyframes logoFadeIn {
+  0% {
+    opacity: 0;
+    filter: blur(5px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+  }
 }
 
 h1 {
