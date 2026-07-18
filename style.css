@@ -23,12 +23,15 @@ body {
   overflow-x: hidden; /* Sécurité anti-débordement pour les animations */
 }
 
-/* HEADER (La barre prend 100% de la largeur de l'écran et centre son contenu) */
+/* ==========================================================================
+   HEADER (MISE À JOUR DE LA HAUTEUR)
+   ========================================================================== */
 header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;             
+  height: 60px;            /* ◄ FORCE UNE HAUTEUR FINE POUR LA BANDE */
   display: flex;
   justify-content: space-between; 
   align-items: center;
@@ -38,7 +41,6 @@ header {
   z-index: 1000;
   box-sizing: border-box;
   
-  /* Animation d'apparition du header depuis le haut */
   animation: slideFromTop 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
@@ -57,40 +59,38 @@ header {
 }
 
 /* ==========================================================================
-   🧱 LOGO ET TITRE DU HEADER (VERSION CORRIGÉE ET ALIGNÉE)
+   🧱 LOGO ET TITRE DU HEADER (CORRECTION DE LA BANDE TROP HAUTE)
    ========================================================================== */
 .logo-container {
   display: flex;
   align-items: center;
-  gap: 10px;          /* Écart propre entre l'icône et le texte */
-  height: 100%;       /* Prend toute la hauteur disponible du header */
+  gap: 10px;
+  height: 100%;
+  overflow: visible;       /* Permet au Spark de dépasser proprement si besoin */
 }
 
 .header-logo {
-  height: auto !important;
+  height: 90px !important; /* ◄ On lui donne une hauteur fixe un peu plus grande... */
   width: auto !important;
   flex-shrink: 0;
   display: block;
-
-  /* Réduit la taille de l'image par 2 proprement sans lisser les pixels */
-  transform: scale(0.5); 
   
-  /* Optionnel : Ajuste la marge si l'image te semble décalée après réduction */
-  margin-left: -10px; 
+  /* ◄ ...et on le réduit ici pour que ses pixels soient ultra nets et s'adaptent au header de 60px */
+  transform: scale(0.45); 
+  margin-left: -15px;      /* Aligne le Spark parfaitement contre le bord gauche */
+  margin-right: -10px;     /* Rapproche le texte du logo */
 }
 
 .header-title {
   color: white;
   font-family: 'MonProjetFont', Arial, sans-serif;
-  font-size: 1.2rem;  /* Augmenté un poil pour que les pixels de la police restent lisibles */
+  font-size: 1.1rem;
   font-weight: bold;
   letter-spacing: 0.5px;
   white-space: nowrap;
   
-  /* Ajustement magique pour aligner la police pixel avec l'icône */
   display: inline-block;
   line-height: 1;
-  transform: translateY(1px); 
 }
 
 /* Menu droite */
