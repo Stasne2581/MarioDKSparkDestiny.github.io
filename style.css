@@ -11,8 +11,8 @@ body {
   font-family: 'MonProjetFont', Arial, sans-serif;
   color: white;
   
-  /* Image de fond fixe qui prend tout l'écran */
-  background-image: url('votre-image-de-fond.png'); /* ◄ REMPLACEZ PAR VOTRE IMAGE */
+  /* Image de fond identique pour tout le site */
+  background-image: url('background.png'); 
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -20,7 +20,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  overflow-x: hidden; /* Sécurité anti-débordement pour les animations */
+  overflow-x: hidden;
 }
 
 /* ==========================================================================
